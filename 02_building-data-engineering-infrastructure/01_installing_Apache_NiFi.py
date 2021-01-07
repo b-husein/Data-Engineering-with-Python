@@ -76,4 +76,6 @@
     - export PATH=$PATH:$JAVA_HOME/bin
 
 
+    - Start:
+    /Downloads/nifi-1.12.1$ bin/nifi.sh start
 '''
