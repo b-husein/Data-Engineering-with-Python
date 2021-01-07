@@ -76,6 +76,9 @@
     - export PATH=$PATH:$JAVA_HOME/bin
 
 
-    - Start:
+    - Start in terminal:
     /Downloads/nifi-1.12.1$ bin/nifi.sh start
+
+    - Browser:
+    http://localhost:9300/nifi/
 '''
