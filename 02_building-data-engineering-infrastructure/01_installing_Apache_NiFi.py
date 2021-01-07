@@ -67,3 +67,13 @@
 
 
 '''
+
+''' 
+ - Additional notes related to JAVA_HOME path setting:
+    - sudo gedit /etc/profile
+    - JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+    - export JAVA_HOME
+    - export PATH=$PATH:$JAVA_HOME/bin
+
+
+'''
