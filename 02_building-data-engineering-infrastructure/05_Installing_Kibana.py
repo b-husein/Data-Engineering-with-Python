@@ -20,8 +20,15 @@
     sudo apt-get update
     sudo apt-get install kibana
 
+4. The configuration files for Kibana are located in etc/kibana and the application is 
+   in /usr/share/kibana/bin. To launch kibana, run following:
 
+   bin/kibana
 
+5. When Kibana is ready, browse to http://localhost:5601; Kibana will look for any 
+   instance of Elasticsearch running on localhost at port 9200. 
+
+When Kibana opens, you will be asked to choose between Try our sample data and Explore on my own.
 
 
 
