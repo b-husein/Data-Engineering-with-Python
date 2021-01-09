@@ -19,4 +19,6 @@
 
   http://localhost:9200
 
+- Now that we have a NoSQL database running, we will need a relational database as well.
+
 '''
