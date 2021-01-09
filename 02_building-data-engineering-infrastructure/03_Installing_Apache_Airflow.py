@@ -30,8 +30,14 @@
 
 - To run Airflow we need to initialize database using the following command:
 
-  airflow initdb
+  airflow db init #updated (january 9th 2021)
 
+- The default database for Airflow is SQLite. This is good enough for testing and 
+  running on a signle machine, but to run in production and in clusters, you will
+  need to change the database to something else, such as PostgreSQL;
 
+- In the case of 'no command airflow' in terminal, we need to add it to our path:
+
+  export PATH=$PATH:/home/<username>/.local/bin
 
 '''
