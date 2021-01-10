@@ -127,6 +127,58 @@ With faker now installed, we are ready to start writing files. The next section 
 
   pip3 install pandas
   
+- We can think of pandas DataFrame as an Excel sheet or table. You will have rows, columns and index.
+  To load CSV data into a DataFrame, the following steps must be followed:
 
+    1. import pandas (usually as pd)
+
+    import pandas as pd
+
+    2. then, read the file using read_csv() method which takes several optional parameters and one
+    required parameter - the file or file-like buffer. The two optional parameters that maybe of 
+    interest are 'header', which by default attepts to inder the headers. 
+
+    If we set header=0, then you can use the 'names' parameter with an array of column names. If you
+    have a large file and you just want to look at piece of it, you can use 'nrows' to specify the
+    number of rows to spread, so 'nrows=100' it means it will only read 100 rows for the data. 
+
+    In the following snippet, you will load the entire file using the defaults:
+
+    df=pd.read_csv('data.CSV')
+
+    3. Let's now look at the first 10 records by using the following:
+
+    df.head(10)
+
+- You can create a DataFrame in Python with the following steps:
+
+    1. CREATE A DICTIONARY OF DATA. A dictionary is a data structure that stores data
+    as a key:value pair. The value can be of any Python data type - for example, an array.
+    Dictionaries have methods for finding keys(), values(), and items(). They also allow you
+    to find the value of a key by using the key name in brackets - for example, dictionary['key']
+    will return the value for that key:
+
+    data={'Name' : ['Paul','Bob','Susan','Yolanda'],
+    'Age' : [23, 45, 18, 21]}
+
+    2. PASS THE DATA TO THE DATAFRAME:
+
+    df=pd.DataFrame(data)
+
+    3. THE COLUMNS ARE SPECIFIED AS THE KEYS IN THE DICTIONARY. Now that you have a DataFrame, you 
+    can write the contents to a CSV using to_csv() method and passing a filename.
+
+    In the example we did not set an index, which means the row names will be a number from 0 to n, 
+    where n is length of the DataFrame. When you export to CSV, these values will be written to the 
+    file, but the column name will be blank. So, in a case where you do not need the row names or 
+    index to be written to the file, pass the index parameter to to_csv(), as shown:
+
+    df.to_csv('fromdf.CSV', index=False)
+
+    You will now have a CSV file with the contents of the DataFrame.
+'''
+
+''' 
+- WRITING JSON WITH PYTHON
 
 '''
