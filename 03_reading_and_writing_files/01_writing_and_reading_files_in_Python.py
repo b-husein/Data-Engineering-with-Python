@@ -181,4 +181,69 @@ With faker now installed, we are ready to start writing files. The next section 
 ''' 
 - WRITING JSON WITH PYTHON
 
+- Another common data format you will probably deal with is JavaScript Object Notation (JSON).
+  We wil encounter JSON most often when we are making calls to Application Programming Interfaces (APIs).
+  However, it can exist as file as well. How you handle the data is very similar, no matter whether
+  you read it from a file or an API. Python, as we learned with CSV, has a standard library for 
+  handling JSON data, not suprisingly named JSON-JSON.
+
+- To write JSON using Python and the standard library, the following steps need to be observed:
+
+  1. Import the library and open the file you will write to. You need to create the Faker object:
+
+  from faker import Faker
+  import json
+  output=open('data.JSON', 'w')
+  fake=Faker()
+
+  2. We will create 1000 records, just as we did in the CSV example, so you will need to create
+  dictionary to hold the data. As mentioned earlier, the value of a key can be any Python data 
+  type - including an array of values. After creating the dictionary to hold the records, add 
+  a 'records' key and initialize it with a blank array:
+
+  alldata = {}
+  alldata['records']=[]
+
+  3. To write the records, you use Faker to create a dictionary, then append it to the array:
+
+  for x in range(1000):
+    data={"name":fake.name(),"age":fake.random_int
+          (min=18,max=80,step=1), 
+          "street":fake.street_address(),
+          "city":fake.city(),
+          "state":fake.state(),
+          "zip":fake.zipcode(),
+          "lng":float(fake.longitude()),
+          "lat":float(fake.latitude())}
+    alldata['records'].append(data)
+
+  4. Lastly, to write JSON to a file, use the JSON.dump() method. Pass the data that you want
+  to write and a file to write to:
+
+  json.dump(alldata,output) 
+
+  You now have a data.JSON file that has an array with 1000 records. You can read this file by
+  taking the following steps:
+
+  1. Open the file:
+
+  with open("data.JSON", "r") as f:
+
+  2. Use JSON.load() and pass the file reference to the method:
+
+  data=json.load(f)
+
+  3. Inspect the json by looking at the first record using the following:
+
+  data['records'][0]
+
+  or just use the name:
+
+  data['records']['0']['name']
+
+  Whe you load and dump JSON, make sure you do not add an 's' at the end of the JSON terms, 
+  because 'loads' and 'dumps' are different than load and dump. Both are valid methods of
+  the JSON library. The difference is that loads and dumps are for strings - they do not
+  serialize the JSON.
+
 '''
